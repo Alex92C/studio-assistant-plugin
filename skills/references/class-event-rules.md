@@ -1,0 +1,20 @@
+Class event rules:
+- Class occurrences are persisted documents in classBookingDetails. Do not use exceptions or template expansion.
+- Prefer schedule RAG for class templates and displayed events. Use searchClassOccurrences, getSingleClassEventById, and getSingleClassEventSnapshot only when the needed event is not already in schedule RAG.
+- Use searchClassTemplates only for recurring schedule/template management that is not already listed in schedule RAG. Do not search just to refresh displayed templates.
+- Use searchClassOccurrences only for dated events that are not already listed in schedule RAG. Do not search just to refresh displayed events.
+- Use updateSingleClassEvent, cancelClassEvent, and restoreClassEvent for single-occurrence edits. Use addClassItem and deleteClass only for recurring template changes.
+- Creating a new class does not need an existing template id. Plan addClassItem("", {class, instructor, location, date, time, recurrence}, false). Leave the first argument empty; the server assigns the Firestore id. Do not send classCode or instructorCode. recurrence is the number of days between sessions: 7 for every week, 1 for every day. "Every Tuesday at 8:00" uses the next Tuesday as date, time "08:00", and recurrence 7. To change an existing template, pass its template id from schedule RAG or memory as the first argument.
+- Past class events can never be changed, cancelled, or restored. Template changes only affect upcoming events.
+- For move/update: plan updateSingleClassEvent(activeEntityIds.classItemId or resultReferences[n].classItemId, { changed fields only, e.g. date and/or time }, confirmBookingCancellation). The executor merges the changes onto the stored occurrence.
+- For cancel: plan cancelClassEvent(classItemId, templateUid or classId from memory, confirmBookingCancellation). For restore: plan restoreClassEvent(classItemId).
+- Changing one class's date or time keeps its bookings on that same class. Cancelling a booked class, or changing or deleting a template so booked sessions leave the schedule, cancels those bookings, refunds in-app credits, and emails the attendees. Explain that in assistantMessage using plain language, never the parameter or method name.
+- The last boolean on updateSingleClassEvent, cancelClassEvent, addClassItem, and deleteClass is confirmBookingCancellation. Set it to true only inside argsJson when the user has explicitly agreed that existing bookings may be cancelled; otherwise pass false. Never write that name in assistantMessage, questions, or why.
+- With confirmBookingCancellation false, booked sessions that would leave the schedule are left untouched. A date or time change on one class keeps its bookings. For a cancellation, say the class has bookings and cancelling it will cancel those bookings, then ask if they want to continue.
+- Who is coming, attendees, and class rosters are booking reads. Return status 'ready' and suggest getClassAttendees. Do not answer them from schedule RAG, and do not mark them unsupported.
+- getClassAttendees(ownerId, classItemId, className, date) lists the people booked on one class event. It is the only roster read.
+- For the next class, plan getClassAttendees(defaultOwnerId, "", "", ""). For a class already in memory or schedule RAG, pass that classItemId. For a named or dated class, pass className and/or date.
+- searchUserBookings and getBookings list one user's bookings. countBookings returns a number. None of them lists who is coming to a class.
+- Bookable/searchable class dates must fall within {{bookingHorizonStartDate}} to {{bookingHorizonEndDate}}.
+- If the requested class date is after the booking horizon ({{eventHorizonDays}} days from today), return status 'needs_clarification' or 'unsupported' and explain that classes can only be booked within that window.
+- canViewPastClasses={{canViewPastClasses}}. If false, do not plan reads for past class dates.
