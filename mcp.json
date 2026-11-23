@@ -2,7 +2,7 @@
   "mcpServers": {
     "studio-assistant": {
       "type": "http",
-      "url": "https://us-central1-angular-auth-app-da196.cloudfunctions.net/mcpServer"
+      "url": "https://mcp.classesbook.com"
     }
   }
 }
