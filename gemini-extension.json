@@ -1,0 +1,11 @@
+{
+  "name": "classesbook",
+  "version": "1.1.0",
+  "description": "Manage a ClassesBook fitness studio from Gemini CLI: schedule, classes, bookings, waitlists, packages, forms and settings. Changes wait for confirmation.",
+  "mcpServers": {
+    "classesbook": {
+      "httpUrl": "https://mcp.classesbook.com"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

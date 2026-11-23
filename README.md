@@ -42,6 +42,14 @@ Reload Cursor, confirm the skills and the MCP server appear, and complete the br
 { "mcpServers": { "classesbook": { "url": "https://mcp.classesbook.com" } } }
 ```
 
+## Install in Gemini CLI
+
+```bash
+gemini extensions install https://github.com/Alex92C/studio-assistant-plugin
+```
+
+Then run `/mcp auth classesbook` to sign in.
+
 ## Test prompt
 
 > What is my studio session, and what is on the schedule this week?
@@ -55,6 +63,7 @@ plugin.json                 Agent Plugins manifest
 .cursor-plugin/plugin.json  Cursor plugin manifest
 .claude-plugin/plugin.json  Claude plugin manifest
 mcp.json / .mcp.json        Remote MCP URL
+gemini-extension.json       Gemini CLI extension manifest (+ GEMINI.md context)
 skills/                     Workflow skills
 assets/logo.png             Marketplace logo (512×512)
 ```
