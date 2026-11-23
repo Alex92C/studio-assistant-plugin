@@ -1,4 +1,4 @@
-# ClassesBook AI Studio Assistant plugin
+# ClassesBook AI Connector plugin
 
 Cursor and Grok Bot plugin for [ClassesBook](https://classesbook.com), the class booking software for fitness studios. It packages agent skills and the ClassesBook remote MCP server, so your agent can check the schedule, see who is booked, manage waitlists, book and cancel classes, and edit classes, packages, forms and studio settings.
 
@@ -22,9 +22,9 @@ You don't need this plugin to use the connector: any MCP client that supports re
 After the marketplace listing is live:
 
 1. Open **Connect Apps** in the Grok Bot sidebar (on mobile: avatar → Connect Apps).
-2. Search for **studio-assistant** and add it.
+2. Search for **ClassesBook AI Connector** and add it.
 3. Choose **Authorize** and sign in with your ClassesBook account.
-4. In chat, attach `@studio-assistant` if the Bot does not pick it up on its own.
+4. In chat, attach `@classesbook-ai-connector` if the Bot does not pick it up on its own.
 
 Before the listing is live, ask Grok Bot to add the MCP connector `https://mcp.classesbook.com`, then Authorize.
 
@@ -33,7 +33,7 @@ Before the listing is live, ask Grok Bot to add the MCP connector `https://mcp.c
 After the listing is approved, install from the Cursor Marketplace. To try the package locally:
 
 ```bash
-cp -R . ~/.cursor/plugins/local/studio-assistant
+cp -R . ~/.cursor/plugins/local/classesbook-ai-connector
 ```
 
 Reload Cursor, confirm the skills and the MCP server appear, and complete the browser sign-in. Or add only the server to `~/.cursor/mcp.json`:

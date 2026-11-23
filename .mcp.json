@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "studio-assistant": {
+    "classesbook": {
       "type": "http",
       "url": "https://mcp.classesbook.com"
     }
