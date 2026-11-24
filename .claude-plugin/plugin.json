@@ -1,5 +1,18 @@
 {
-  "name": "studio-assistant",
-  "version": "1.0.0",
-  "description": "Studio booking assistant skills and remote MCP server."
+  "name": "classesbook-ai-connector",
+  "version": "1.1.0",
+  "description": "Manage a ClassesBook fitness studio from your AI assistant: schedule, classes, bookings, waitlists, attendees, packages, forms and settings. Every change waits for your confirmation.",
+  "author": {
+    "name": "ClassesBook",
+    "url": "https://classesbook.com"
+  },
+  "homepage": "https://classesbook.com/ai/",
+  "repository": "https://github.com/Alex92C/studio-assistant-plugin",
+  "license": "MIT",
+  "keywords": [
+    "classesbook",
+    "fitness",
+    "studio",
+    "mcp"
+  ]
 }

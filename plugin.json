@@ -1,24 +1,33 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "studio-assistant",
-  "version": "1.0.0",
-  "description": "Ask about classes, bookings, attendees, packages, forms, and settings in a ClassesBook studio. Changes wait for confirmation.",
+  "name": "classesbook-ai-connector",
+  "version": "1.1.0",
+  "description": "Manage a ClassesBook fitness studio from your AI assistant: schedule, classes, bookings, waitlists, attendees, packages, forms and settings. Every change waits for your confirmation.",
   "author": {
     "name": "Alex Cusenza",
     "email": "alessandro.cusenza92@gmail.com"
   },
-  "homepage": "https://app.classesbook.com",
+  "homepage": "https://classesbook.com/ai/",
   "repository": "https://github.com/Alex92C/studio-assistant-plugin",
   "license": "MIT",
-  "keywords": ["booking", "classes", "studio", "mcp", "grok-bot"],
-  "logo": "assets/logo.svg",
+  "keywords": [
+    "classesbook",
+    "fitness",
+    "studio",
+    "class-booking",
+    "scheduling",
+    "mcp",
+    "grok-bot",
+    "cursor"
+  ],
+  "logo": "assets/logo.png",
   "skills": "./skills/",
   "mcpServers": "./mcp.json",
   "extensions": {
     "com.openai": {
       "presentation": {
-        "name": "Studio assistant",
-        "description": "Ask about classes, bookings, attendees, packages, forms, and settings. Changes wait for confirmation."
+        "name": "ClassesBook AI Connector",
+        "description": "Ask about classes, bookings, waitlists, attendees, packages, forms and settings in your ClassesBook studio. Changes wait for your confirmation."
       }
     }
   }
